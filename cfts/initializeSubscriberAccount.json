@@ -515,7 +515,7 @@
                     {
                         "Sid": "InvokeLambda",
                         "Effect": "Allow",
-                        "Action": ["lambda:Invoke","lambda:InvokeFunction"],
+                        "Action": ["lambda:InvokeFunction"],
                         "Resource": ["*"]
                     },
                     {

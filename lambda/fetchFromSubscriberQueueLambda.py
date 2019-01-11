@@ -16,14 +16,15 @@ def lambda_handler(event,context):
         if subscriberConfig:
             logger.info("Reading from Queue")
             receive_message=fetchFromQueue(subscriberConfig['SubscriberQueueUrl'])
-            if 'Messages' in receive_message:
-                  for message in receive_message['Messages']:
-                      action=message['Body']
-                      action=json.loads(action.replace('\'','\"'))
-                      return action
-            else:
-                event={'Action':'Null'}
-                return event
+            if receive_message:
+                if 'Messages' in receive_message:
+                      for message in receive_message['Messages']:
+                          action=message['Body']
+                          action=json.loads(action.replace('\'','\"'))
+                          return action
+                else:
+                    event={'Action':'Null'}
+                    return event
         else:
             logger.error("No data received from SubscriberConfig Table, Error")
             return 

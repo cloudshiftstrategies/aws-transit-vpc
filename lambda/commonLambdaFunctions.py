@@ -69,11 +69,12 @@ def fetchFromQueue(sqsQueueUrl):
     try:
         sqsConnection=boto3.client('sqs',region_name=sqsQueueUrl.split('.')[1])
         receive_message=sqsConnection.receive_message(QueueUrl=sqsQueueUrl,MaxNumberOfMessages=1)
-        if 'Messages' in receive_message:
-            #Delete Message from Queue
-            print("Deleting message from {} Queue-> {}".format(sqsQueueUrl,receive_message['Messages'][0]['Body']))
-            sqsConnection.delete_message(QueueUrl=sqsQueueUrl,ReceiptHandle=receive_message['Messages'][0]['ReceiptHandle'])
-            return receive_message
+        if receive_message:
+            if 'Messages' in receive_message:
+                #Delete Message from Queue
+                print("Deleting message from {} Queue-> {}".format(sqsQueueUrl,receive_message['Messages'][0]['Body']))
+                sqsConnection.delete_message(QueueUrl=sqsQueueUrl,ReceiptHandle=receive_message['Messages'][0]['ReceiptHandle'])
+                return receive_message
     except Exception as e:
         logger.error("Fetching from {} Queue is Failed, Error {}".format(sqsQueueUrl,str(e)))
         #return False

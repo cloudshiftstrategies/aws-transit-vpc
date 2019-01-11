@@ -1,8 +1,9 @@
+<?xml version="1.0"?>
 <config version="8.0.0" urldb="paloaltonetworks">
   <mgt-config>
     <users>
       <entry name="admin">
-        <phash>$1$acfwlwlo$iRTys2hxE3BHdZFgsJ.U7/</phash>
+        <phash>$1$acfwlwlo$xGtou/3Rn4nDmAcoOdgNK/</phash>
         <permissions>
           <role-based>
             <superuser>yes</superuser>
@@ -13,10 +14,10 @@
     </users>
   </mgt-config>
   <shared>
-    <application></application>
-    <application-group></application-group>
-    <service></service>
-    <service-group></service-group>
+    <application/>
+    <application-group/>
+    <service/>
+    <service-group/>
     <botnet>
       <configuration>
         <http>
@@ -77,7 +78,7 @@
             <entry name="ethernet1/1">
               <layer3>
                 <ip>
-                  <entry name="eth1"></entry>
+                  <entry name="eth1"/>
                 </ip>
                 <interface-management-profile>DataPlane</interface-management-profile>
               </layer3>
@@ -339,7 +340,7 @@
             </interface>
             <ecmp>
               <algorithm>
-                <ip-modulo></ip-modulo>
+                <ip-modulo/>
               </algorithm>
             </ecmp>
             <routing-table>
@@ -361,7 +362,7 @@
                     <metric>10</metric>
                     <destination>0.0.0.0/0</destination>
                     <route-table>
-                      <unicast></unicast>
+                      <unicast/>
                     </route-table>
                   </entry>
                 </static-route>
@@ -421,8 +422,8 @@
       </deviceconfig>
       <vsys>
         <entry name="vsys1">
-          <application></application>
-          <application-group></application-group>
+          <application/>
+          <application-group/>
           <zone>
             <entry name="UNTRUST">
               <network>
@@ -432,10 +433,10 @@
               </network>
             </entry>
           </zone>
-          <service></service>
-          <service-group></service-group>
-          <schedule></schedule>
-          <rulebase></rulebase>
+          <service/>
+          <service-group/>
+          <schedule/>
+          <rulebase/>
           <address>
             <entry name="eth1">
               <ip-netmask>172.15.15.15</ip-netmask>
